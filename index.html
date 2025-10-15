@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>6-Day Muscle Gain Workout</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffffff"/>
+<link rel="icon" href="icons/icon-192.png">
+<style>
+/* Light theme & modern styles */
+:root{
+--bg:#f4f7fb; --card:#ffffff; --muted:#657786; --accent:#2b9cff; --accent-600:#237fd9;
+--glass: rgba(43,156,255,0.06);
+--shadow: 0 6px 20px rgba(22,35,63,0.08);
+--radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background:var(--bg);color:#0b1b2b;line-height:1.4;}
+header{padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 2px 6px rgba(15,23,42,0.04);background:linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);position:sticky;top:0;z-index:8}
+header h1{font-size:16px;margin:0}
+.container{max-width:980px;margin:18px auto;padding:16px}
+.card{background:var(--card);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(11,27,43,0.03)}
+.days{display:flex;gap:8px;flex-wrap:wrap}
+.day-btn{padding:8px 10px;border-radius:10px;background:transparent;border:1px solid rgba(11,27,43,0.06);cursor:pointer;color:var(--muted);font-weight:700}
+.day-btn.active{background:linear-gradient(90deg,var(--accent),var(--accent-600));color:white;box-shadow:0 8px 22px rgba(43,156,255,0.12)}
+main{display:flex;gap:16px;margin-top:16px}
+.left{flex:1}
+.right{width:320px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:8px 6px;text-align:left;border-bottom:1px dashed rgba(11,27,43,0.04);font-size:14px}
+th{color:var(--muted);font-size:13px}
+.sets-cell{width:120px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{padding:8px 10px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+.btn.primary{background:var(--accent);color:white}
+.btn.ghost{background:transparent;border:1px solid rgba(11,27,43,0.06);color:var(--muted)}
+.exercise-row.done{opacity:0.6;text-decoration:line-through}
+.small{font-size:13px;color:var(--muted)}
+.timer{font-weight:800;font-size:18px;color:#0b1b2b}
+.topline{display:flex;justify-content:space-between;gap:10px;align-items:center}
+/* Settings modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(9,18,28,0.35);display:none;align-items:center;justify-content:center;z-index:50}
+.modal{width:96%;max-width:520px;background:linear-gradient(180deg,#ffffff,#fbfdff);border-radius:16px;padding:18px;box-shadow:0 20px 40px rgba(15,23,42,0.12);}
+.close-x{background:transparent;border:0;font-size:20px;cursor:pointer;color:var(--muted)}
+.header-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+</style>
+</head>
+<body>
+<header>
+<h1>6-Day Muscle Gain</h1>
+<div class="header-right">
+<button id="settingsBtn" class="btn ghost" title="Settings">⚙️</button>
+</div>
+</header>
+<div class="container">
+<div class="card">
+<div class="topline"><strong id="dayTitle">Monday</strong></div>
+<div class="days" id="dayButtons"></div>
+<table id="exTable">
+<thead><tr><th>Done</th><th>Exercise</th><th>Sets × Reps</th></tr></thead>
+<tbody></tbody>
+</table>
+<div class="controls">
+<button class="btn primary" id="startSession">Start Strength</button>
+<button class="btn ghost" id="startCardio">Start Cardio</button>
+</div>
+<div class="timer" id="sessionTimer">40:00</div>
+</div>
+</div>
+
+<!-- Settings Modal -->
+<div class="modal-backdrop" id="modalBackdrop">
+<div class="modal">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<h3>Settings</h3>
+<button class="close-x" id="closeModal">✕</button>
+</div>
+<div>
+<label>Strength minutes: <input type="number" id="strengthMinutes" value="40"/></label><br/>
+<label>Cardio minutes: <input type="number" id="cardioMinutes" value="20"/></label><br/>
+<label>Rest seconds: <input type="number" id="restSeconds" value="60"/></label><br/>
+<label>Units: <select id="units"><option value="kg">kg</option><option value="lbs">lbs</option></select></label><br/>
+<button id="saveSettings" class="btn primary">Save Settings</button>
+</div>
+</div>
+</div>
+
+<script>
+// Minimal JS to open/close settings
+document.getElementById('settingsBtn').onclick=()=>document.getElementById('modalBackdrop').style.display='flex';
+document.getElementById('closeModal').onclick=()=>document.getElementById('modalBackdrop').style.display='none';
+// You can copy full JS code from the previous version for timers and progress here
+</script>
+</body>
+</html>
