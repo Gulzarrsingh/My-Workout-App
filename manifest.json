@@ -1,0 +1,13 @@
+{
+"name": "6-Day Muscle Gain Workout",
+"short_name": "6D Workout",
+"start_url": "./index.html",
+"display": "standalone",
+"background_color": "#ffffff",
+"theme_color": "#ffffff",
+"description": "Light-themed PWA for 6-day muscle gain program. Customizable timers and settings stored locally.",
+"icons": [
+{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+{ "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+]
+}
